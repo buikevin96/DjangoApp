@@ -1,4 +1,4 @@
-#!/Users/kevinbui/Desktop/pro/bin/python
+#!/Users/kevinbui/Desktop/DjangoApp/pro/bin/python
 
 import sys
 import getopt

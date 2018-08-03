@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/kevinbui/Desktop/pro"
+VIRTUAL_ENV="/Users/kevinbui/Desktop/DjangoApp/pro"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
