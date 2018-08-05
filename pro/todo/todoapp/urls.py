@@ -21,5 +21,6 @@ from todoapp import views
 urlpatterns = [
     # path('admin/', admin.site.urls),
     url(r'^$', views.index,name='index'), #views.py, takes index function
-    url(r'^detail', views.detail,name='detail'),#views.py, takes detail function
+    # todoappp/1
+    url(r'^(?P<task_id>[0-9]+)/$', views.detail,name='detail'),#views.py, takes detail function
 ]
