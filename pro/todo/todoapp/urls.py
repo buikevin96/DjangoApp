@@ -17,10 +17,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from todoapp import views
+from . import views
+
+app_name = 'todoapp'
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     url(r'^$', views.index,name='index'), #views.py, takes index function
     # todoappp/1
     url(r'^(?P<task_id>[0-9]+)/$', views.detail,name='detail'),#views.py, takes detail function
+
 ]

@@ -26,6 +26,5 @@ def detail(request, task_id): # Accepts task_id
     }
     return render(request, 'todoapp/detail.html', context) #Passes context into detail.html
 
-    #Added exception handling functionality to detail view
 
 
