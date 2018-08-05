@@ -15,7 +15,12 @@ def index(request):
     #output = ','.join([q.task_name for q in task_list])# Retrieve all of the task_names in the task_list and append a comma after them
     return render(request, 'todoapp/index.html', context)
 
+# Detail View
 def detail(request, task_id):
-    return HttpResponse('This is task number %s' % task_id)
+    task = Task.objects.get(pk=task_id)
+    context = {
+        'task': task,
+    }
+    return render(request, 'todoapp/detail.html', context)
 
 
