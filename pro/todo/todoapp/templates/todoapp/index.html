@@ -6,7 +6,7 @@
     </head>
     <body>
             {% block body %}
-
+<!--
             {% if task_list %}
             <ul>
                 {% for task in task_list %}
@@ -17,9 +17,33 @@
             </ul>
             {% else %}
             {% endif %}
+-->
 
+            <div class="container">
+                <h2>Today's List</h2>
+                <p>Let's get things done!</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Task Priority</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if task_list %}
+                        {% for task in task_list %}
+                        <tr class="active">
+                            <td><a href="{% url 'todoapp:detail' task.id %}">{{task.task_name}}</a> </td>
+                            <td><b>{{task.task_priority}}</b></td>
+                            <td><button type="submit" class="btn btn-success">Done</button></td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
             {% endblock %}
-
     </body>
 </html>
 
