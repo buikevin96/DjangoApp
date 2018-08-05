@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from .models import Task
 from django.template import loader
 
@@ -16,11 +16,16 @@ def index(request):
     return render(request, 'todoapp/index.html', context)
 
 # Detail View
-def detail(request, task_id):
-    task = Task.objects.get(pk=task_id)
+def detail(request, task_id): # Accepts task_id
+    try:
+        task = Task.objects.get(pk=task_id) # Filters out task to get requested
+    except Task.DoesNotExist:
+        raise Http404('Task does not exist')
     context = {
         'task': task,
     }
-    return render(request, 'todoapp/detail.html', context)
+    return render(request, 'todoapp/detail.html', context) #Passes context into detail.html
+
+    #Added exception handling functionality to detail view
 
 
