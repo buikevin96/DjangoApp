@@ -1,3 +1,18 @@
+from django.views import generic
+from .models import Task
+
+class IndexView(generic.ListView):
+    template_name = 'todoapp/index.html'
+
+    def get_queryset(self):
+        return Task.objects.all()
+
+class DetailView(generic.DetailView):
+    model = Task
+    template_name = 'todoapp/detail.html'
+
+''' Old Views.py
+
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from .models import Task
@@ -25,6 +40,5 @@ def detail(request, task_id): # Accepts task_id
         'task': task,
     }
     return render(request, 'todoapp/detail.html', context) #Passes context into detail.html
-
-
+'''
 
